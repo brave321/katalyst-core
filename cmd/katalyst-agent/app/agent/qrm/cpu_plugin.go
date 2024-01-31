@@ -57,6 +57,7 @@ func InitQRMCPUPlugins(agentCtx *agent.GenericContext, conf *config.Configuratio
 	initializers := getCPUPolicyInitializers()
 	policyName := conf.CPUQRMPluginConfig.PolicyName
 
+        fmt.Println("logger",policyName)
 	initFunc, ok := initializers[policyName]
 	if !ok {
 		return false, agent.ComponentStub{}, fmt.Errorf("invalid policy name %v for cpu resource plugin", policyName)
